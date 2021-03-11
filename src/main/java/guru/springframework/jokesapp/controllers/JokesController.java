@@ -12,14 +12,12 @@ public class JokesController {
 	private final JokesService jokesService;
 
 	public JokesController(JokesService jokesService) {
-		super();
 		this.jokesService = jokesService;
 	}
 	
 	@RequestMapping("/")
 	public String showJoke(Model model) {
-		String joke = jokesService.getJoke();
-		model.addAttribute("joke", joke);
+		model.addAttribute("joke", jokesService.getJoke());
 		return "index";
 	}
 }
